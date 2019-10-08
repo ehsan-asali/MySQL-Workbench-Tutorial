@@ -208,12 +208,6 @@ INSERT INTO bookings (user_id, promo_id, booking_date, order_total) values (3, '
 ```sql
 INSERT INTO addresses (state, city, street, zipcode) values ('Georgia', 'Atlanta', 'Buckhead', '30303'),('Georgia', 'Athens', 'Milledge', '30606'),('Georgia', 'Athens', 'Lumpkin', '30605'),('Georgia', 'Athens', 'Rutherford', '30603');
 ```
-card_num INT,
-   user_id INT,
-   name_on_card VARCHAR(100),
-   exp_date DATETIME,
-   cvv INT(4),
-   addr_id INT
 
 ```sql
 INSERT INTO bankcards (card_num, user_id, name_on_card, exp_date, cvv, addr_id) values ('9820945656278383', '2', 'Fred Smith', '2022-08-05', '907', '1'),('45378290486553', '2', 'Fred Smith', '2023-10-25', '554', '1'),('56478928645532', '3', 'Sara Watson', '2023-02-12', '123', '2'),('676890930276542', '5', 'Paula Johnson', '2020-11-09', '361', '4'),('7989375423566101', '6', 'Tom Spears', '2023-01-28', '329', '3')
