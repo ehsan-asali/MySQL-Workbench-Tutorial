@@ -101,22 +101,22 @@ SHOW DATABASES;
 ### Create Database
 
 ```sql
-CREATE DATABASE customer;
+CREATE DATABASE cinema;
 ```
 
 ### Delete Database
 
 ```sql
-DROP DATABASE customer;
+DROP DATABASE cinema;
 ```
 
 ### Select Database
 
 ```sql
-USE customer;
+USE cinema;
 ```
 
-### Create Table
+### Create Table (users)
 
 ```sql
 CREATE TABLE users(
@@ -125,15 +125,59 @@ id INT AUTO_INCREMENT,
    last_name VARCHAR(100),
    email VARCHAR(50),
    password VARCHAR(20),
-   location VARCHAR(100),
-   dept VARCHAR(100),
    is_admin TINYINT(1),
    register_date DATETIME,
+   date_of_birth DATETIME,
+   status VARCHAR(20),
    PRIMARY KEY(id)
 );
 ```
 
-### Delete / Drop Table
+### Create Table (bookings)
+
+```sql
+CREATE TABLE bookings(
+id INT AUTO_INCREMENT,
+   user_id INT,
+   promo_id INT,
+   booking_date DATETIME,
+   order_total FLOAT,
+   PRIMARY KEY(id),
+   FOREIGN KEY (user_id) REFERENCES users(id)
+);
+```
+
+### Create Table (bankcards)
+
+```sql
+CREATE TABLE bankcards(
+   card_num INT,
+   user_id INT,
+   name_on_card VARCHAR(100),
+   exp_date DATETIME,
+   cvv INT(4),
+   addr_id INT
+   PRIMARY KEY(card_num),
+   FOREIGN KEY (user_id) REFERENCES users(id),
+   FOREIGN KEY (addr_id) REFERENCES addresses(id),
+);
+```
+
+### Create Table (addresses)
+
+```sql
+CREATE TABLE addresses(
+id INT AUTO_INCREMENT,
+   state VARCHAR(100),
+   city VARCHAR(100),
+   street VARCHAR(100),
+   zipcode INT(10),
+   PRIMARY KEY(id),
+);
+```
+
+
+### Drop Table
 
 ```sql
 DROP TABLE tablename;
@@ -148,14 +192,33 @@ SHOW TABLES;
 ### Insert Row / Record
 
 ```sql
-INSERT INTO users (first_name, last_name, email, password, location, dept, is_admin, register_date) values ('Brad', 'Traversy', 'brad@gmail.com', '123456','Massachusetts', 'development', 1, now());
+INSERT INTO users (first_name, last_name, email, password, is_admin, register_date, date_of_birth, status) values ('Brad', 'Traversy', 'brad@gmail.com', '123456', 1, now(), '1998-11-11', 'active');
 ```
 
-### Insert Multiple Rows
+### Insert Multiple Rows 
 
 ```sql
-INSERT INTO users (first_name, last_name, email, password, location, dept,  is_admin, register_date) values ('Fred', 'Smith', 'fred@gmail.com', '123456', 'New York', 'design', 0, now()), ('Sara', 'Watson', 'sara@gmail.com', '123456', 'New York', 'design', 0, now()),('Will', 'Jackson', 'will@yahoo.com', '123456', 'Rhode Island', 'development', 1, now()),('Paula', 'Johnson', 'paula@yahoo.com', '123456', 'Massachusetts', 'sales', 0, now()),('Tom', 'Spears', 'tom@yahoo.com', '123456', 'Massachusetts', 'sales', 0, now());
+INSERT INTO users (first_name, last_name, email, password, is_admin, register_date, date_of_birth, status) values ('Fred', 'Smith', 'fred@gmail.com', '123456', 0, now(), '1994-08-05', 'active'), ('Sara', 'Watson', 'sara@gmail.com', '123456', 0, now(), '2000-02-24', 'active'),('Will', 'Jackson', 'will@yahoo.com', '123456', 1, now(), '1995-12-20', 'active'),('Paula', 'Johnson', 'paula@yahoo.com', '123456', 0, now(), '1988-01-28', 'active'),('Tom', 'Spears', 'tom@yahoo.com', '123456', 0, now(), '1999-07-03', 'active');
 ```
+
+```sql
+INSERT INTO bookings (user_id, promo_id, booking_date, order_total) values (3, '21398312', now(), '25'), (2, '1873627', now(), '12'),(3, '6782939746', now(), '17'),(3, '56837652', now(), '10'),(5, '4567823', now(), '5'),(6, '9874272', now(), '20'),(5, '52678394', now(), '30'),(2, '16277389', now(), '18');
+```
+
+```sql
+INSERT INTO addresses (state, city, street, zipcode) values ('Georgia', 'Atlanta', 'Buckhead', '30303'),('Georgia', 'Athens', 'Milledge', '30606'),('Georgia', 'Athens', 'Lumpkin', '30605'),('Georgia', 'Athens', 'Rutherford', '30603');
+```
+card_num INT,
+   user_id INT,
+   name_on_card VARCHAR(100),
+   exp_date DATETIME,
+   cvv INT(4),
+   addr_id INT
+
+```sql
+INSERT INTO bankcards (card_num, user_id, name_on_card, exp_date, cvv, addr_id) values ('9820945656278383', '2', 'Fred Smith', '2022-08-05', '907', '1'),('45378290486553', '2', 'Fred Smith', '2023-10-25', '554', '1'),('56478928645532', '3', 'Sara Watson', '2023-02-12', '123', '2'),('676890930276542', '5', 'Paula Johnson', '2020-11-09', '361', '4'),('7989375423566101', '6', 'Tom Spears', '2023-01-28', '329', '3')
+```
+
 
 ### Select
 
