@@ -204,7 +204,7 @@ INSERT INTO users (first_name, last_name, email, password, is_admin, register_da
 ```
 
 ```sql
-INSERT INTO bookings (user_id, promo_id, booking_date, order_total) values (3, '21398312', now(), '25'), (2, '1873627', now(), '12'),(3, '6782939746', now(), '17'),(3, '56837652', now(), '10'),(5, '4567823', now(), '5'),(6, '9874272', now(), '20'),(5, '52678394', now(), '30'),(2, '16277389', now(), '18');
+INSERT INTO bookings (user_id, promo_id, booking_date, order_total) values (3, '21398312', now(), '25'), (2, '1873627', now(), '12'),(3, '67829397', now(), '17'),(3, '56837652', now(), '10'),(5, '4567823', now(), '5'),(6, '9874272', now(), '20'),(5, '52678394', now(), '30'),(2, '16277389', now(), '18');
 ```
 
 ```sql
