@@ -230,9 +230,9 @@ SELECT first_name, last_name FROM users;
 ### Where Clause
 
 ```sql
-SELECT * FROM users WHERE location='Massachusetts';
-SELECT * FROM users WHERE location='Massachusetts' AND dept='sales';
+SELECT * FROM addresses WHERE city='Athens';
 SELECT * FROM users WHERE is_admin = 1;
+SELECT * FROM users WHERE is_admin = 1 AND status='active';
 SELECT * FROM users WHERE is_admin > 0;
 ```
 
