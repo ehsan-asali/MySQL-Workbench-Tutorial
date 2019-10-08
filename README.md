@@ -156,7 +156,7 @@ id INT AUTO_INCREMENT,
    city VARCHAR(100),
    street VARCHAR(100),
    zipcode INT(10),
-   PRIMARY KEY(id),
+   PRIMARY KEY(id)
 );
 ```
 
@@ -169,10 +169,10 @@ CREATE TABLE bankcards(
    name_on_card VARCHAR(100),
    exp_date DATETIME,
    cvv INT(4),
-   addr_id INT
+   addr_id INT,
    PRIMARY KEY(card_num),
    FOREIGN KEY (user_id) REFERENCES users(id),
-   FOREIGN KEY (addr_id) REFERENCES addresses(id),
+   FOREIGN KEY (addr_id) REFERENCES addresses(id)
 );
 ```
 
