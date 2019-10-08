@@ -147,6 +147,19 @@ id INT AUTO_INCREMENT,
 );
 ```
 
+### Create Table (addresses)
+
+```sql
+CREATE TABLE addresses(
+id INT AUTO_INCREMENT,
+   state VARCHAR(100),
+   city VARCHAR(100),
+   street VARCHAR(100),
+   zipcode INT(10),
+   PRIMARY KEY(id),
+);
+```
+
 ### Create Table (bankcards)
 
 ```sql
@@ -163,18 +176,7 @@ CREATE TABLE bankcards(
 );
 ```
 
-### Create Table (addresses)
 
-```sql
-CREATE TABLE addresses(
-id INT AUTO_INCREMENT,
-   state VARCHAR(100),
-   city VARCHAR(100),
-   street VARCHAR(100),
-   zipcode INT(10),
-   PRIMARY KEY(id),
-);
-```
 
 
 ### Drop Table
