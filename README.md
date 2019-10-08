@@ -240,13 +240,14 @@ SELECT * FROM users WHERE is_admin > 0;
 
 ```sql
 DELETE FROM users WHERE id = 6;
+DELETE FROM bookings WHERE id = 16;
 ```
 
 ### Update Row
 
 ```sql
 UPDATE users SET email = 'freddy@gmail.com' WHERE id = 2;
-
+UPDATE users SET age = '24' WHERE id = 1;
 ```
 
 ### Add New Column
@@ -271,14 +272,14 @@ SELECT * FROM users ORDER BY last_name DESC;
 ### Concatenate Columns
 
 ```sql
-SELECT CONCAT(first_name, ' ', last_name) AS 'Name', dept FROM users;
+SELECT CONCAT(first_name, ' ', last_name) AS 'Name', status FROM users;
 
 ```
 
 ### Select Distinct Rows
 
 ```sql
-SELECT DISTINCT location FROM users;
+SELECT DISTINCT city FROM addresses;
 
 ```
 
@@ -291,22 +292,21 @@ SELECT * FROM users WHERE age BETWEEN 20 AND 25;
 ### Like (Searching)
 
 ```sql
-SELECT * FROM users WHERE dept LIKE 'd%';
-SELECT * FROM users WHERE dept LIKE 'dev%';
-SELECT * FROM users WHERE dept LIKE '%t';
-SELECT * FROM users WHERE dept LIKE '%e%';
+SELECT * FROM addresses WHERE city LIKE 'At%';
+SELECT * FROM users WHERE last_name LIKE '%son';
+SELECT * FROM addresses WHERE city LIKE '%th%';
 ```
 
 ### Not Like
 
 ```sql
-SELECT * FROM users WHERE dept NOT LIKE 'd%';
+SELECT * FROM users WHERE email NOT LIKE '%yahoo.com';
 ```
 
 ### IN
 
 ```sql
-SELECT * FROM users WHERE dept IN ('design', 'sales');
+SELECT * FROM addresses WHERE city IN ('Athens', 'Miami');
 ```
 
 ## Some More examples that you can check out
