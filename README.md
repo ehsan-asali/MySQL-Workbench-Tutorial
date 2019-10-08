@@ -177,7 +177,11 @@ CREATE TABLE bankcards(
 ```
 
 
+### Modify Column
 
+```sql
+ALTER TABLE bankcards MODIFY COLUMN card_num BIGINT;
+```
 
 ### Drop Table
 
